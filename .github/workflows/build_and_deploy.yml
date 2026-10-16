@@ -28,6 +28,7 @@ on:
 
 jobs:
   build-and-deploy:
+    if: github.repository == 'SumoLogic/sumologic-documentation'
     runs-on: ubuntu-20.04
     environment:
       name: ${{ inputs.environment }}
