@@ -8,6 +8,7 @@ on:
 
 jobs:
     build-and-deploy:
+      if: github.repository == 'SumoLogic/sumologic-documentation'
       runs-on: ubuntu-20.04
       env:
           CI: true
@@ -31,6 +32,7 @@ jobs:
             NODE_OPTIONS: "--max-old-space-size=8192"
           run: yarn build
     spellcheck:
+      if: github.repository == 'SumoLogic/sumologic-documentation'
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@v3

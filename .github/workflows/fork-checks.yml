@@ -1,0 +1,14 @@
+name: Fork documentation checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  documentation:
+    if: github.repository != 'SumoLogic/sumologic-documentation'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Check fork guide links
+        run: python3 .github/scripts/check_fork_docs.py
